@@ -60,7 +60,12 @@ bool AFirearm::CanReload() const
 
 void AFirearm::Reload_Implementation()
 {
-	Reload();
+	SetReloadDelay();
+
+	if (CurrentFirearmData->ReloadSound == nullptr) return;
+	
+	// 재장전 사운드 스폰
+	UGameplayStatics::SpawnSoundAttached(CurrentFirearmData->ReloadSound, AppearanceMesh);
 }
 
 bool AFirearm::TryFire()
@@ -141,17 +146,6 @@ void AFirearm::SetFireDelay()
 		RpmToDelayTime(),
 		false
 	);
-}
-
-
-void AFirearm::Reload()
-{
-	SetReloadDelay();
-
-	if (CurrentFirearmData->ReloadSound == nullptr) return;
-	
-	// 재장전 사운드 스폰
-	UGameplayStatics::SpawnSoundAttached(CurrentFirearmData->ReloadSound, AppearanceMesh);
 }
 
 void AFirearm::SetReloadDelay()
