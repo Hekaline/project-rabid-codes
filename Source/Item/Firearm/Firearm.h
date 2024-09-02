@@ -11,9 +11,7 @@
 class ABullet;
 class UFirearmDataAsset;
 
-/// <summary>
-/// <para> 무기 종류 </para>
-/// </summary>
+// 무기 종류
 UENUM(BlueprintType)
 enum class EFirearmType : uint8
 {
@@ -106,7 +104,7 @@ private:
 	//////////////////// FUNCTION ENDS //////////////////////
 	
 	
-	/////////////////////// PROPERTY BEGINS //////////////////////
+	/////////////////////// VARIABLE BEGINS //////////////////////
 	
 public:
 	UPROPERTY()
@@ -149,5 +147,5 @@ private:
 	UPROPERTY()
 	UAudioComponent* ReloadSoundComp;
 	
-	/////////////////////// PROPERTY ENDS //////////////////////
+	/////////////////////// VARIABLE ENDS //////////////////////
 };
